@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form id="memberform">
+        Member Id<input type="number" name="Member_Id" id="mid" />            <br>
+        Book Id<input type="number" name="Book_Id" id="bid" />                      <br>
+        Issue start date<input type="date" name="Issue_start_date" id="isd" />                  <br>
+        Issue end date<input type="text" name="Issue_end_date" id="ied" />        <br>
+        <br>
+        <input type="button" id="Save" value="Save Data" />
+    </form>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">$(document).ready(function () {
+
+
+
+
+
+            $("#Save").click(function () {
+                var person = new Object();
+                person.Member_Id = $('#mid').val();
+                person.Book_Id = $('#bid').val();
+                person.Issue_start_date = $('#isd').val();
+                person.Isuue_end_date = $('#ied').val();
+
+
+
+
+                $.ajax({
+                    url: 'http://localhost:55391/api/issuedbook/',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: person,
+                    success: function (data, textStatus, xhr) {
+                        console.log(data);
+                        alert("Added")
+                        refresh();
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log('Error in Operation');
+                    }
+                });
+            });
+
+
+
+
+
+        });
+        function refresh() {
+            window.location.href = 'http://localhost:55391/bookformember.html'
+        }</script>
+</body>
+</html>

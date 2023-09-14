@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+
+
+
+    <title>member</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+
+
+
+
+
+
+
+    <table border="1" id="membertable">
+    </table>
+    <form id="memberform">
+        Member Id<input type="number" name="Member_Id" id="mid" />            <br>
+        Name<input type="text" name="Name" id="mname" />                     <br>
+        Email<input type="email" name="Email" id="email" />                  <br>
+        Password<input type="text" name="Password" id="password" />         <br>
+        Address<input type="text" name="Address" id="address" />             <br>
+        Role
+        <select id="role">
+
+
+
+            <option>Role</option>
+            <option>Admin</option>
+            <option>Member</option>
+        </select>                                                              <br />
+
+
+
+
+
+        <input type="button" id="Save" value="Save Data" />
+    </form>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">$(document).ready(function () {
+
+
+
+
+
+            $("#Save").click(function () {
+                var person = new Object();
+                person.Member_Id = $('#mid').val();
+                person.Name = $('#mname').val();
+                person.Email = $('#email').val();
+                person.Password = $('#password').val();
+                person.Address = $('#address').val();
+                person.Role = $('#role').val();
+
+
+
+                $.ajax({
+                    url: 'http://localhost:55391/api/member/',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: person,
+                    success: function (data, textStatus, xhr) {
+                        console.log(data);
+                        alert("New Member Added")
+                        refresh();
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log('Error in Operation');
+                    }
+                });
+            });
+
+
+
+
+
+
+        });
+        function refresh() {
+            window.location.href = 'http://localhost:55391/member.html'
+        }</script>
+</body>
+</html>
