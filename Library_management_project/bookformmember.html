@@ -6,7 +6,7 @@
 
 
     <title></title>
-    <button onclick="window.location.href = 'http://localhost:55391/search.html';">
+    <button onclick="window.location.href = '/search.html';">
         Search
     </button>
 
@@ -33,7 +33,7 @@
 
             $.ajax({
                 type: "GET",
-                url: "http://localhost:55391/api/Book",
+                url: "http://localhost:44316/api/Book",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
 
@@ -129,7 +129,7 @@
         });
         function checkout(Book_Id) {
             $.ajax({
-                url: "http://localhost:55391/api/member/" + Book_Id,
+                url: "http://localhost:44316/api/member/" + Book_Id,
                 type: "PUT",
                 success: function () {
                     alert('Checked out');
@@ -142,7 +142,7 @@
         }
         function returnbook(Book_Id) {
             $.ajax({
-                url: "http://localhost:55391/api/member?rid=" + Book_Id,
+                url: "http://localhost:44316/api/member?rid=" + Book_Id,
                 type: "PUT",
                 success: function () {
                     alert('book returned');
@@ -185,7 +185,7 @@
 
 
         function refresh() {
-            window.location.href = 'http://localhost:55391/checkout.html'
+            window.location.href = '/checkout.html'
         }</script>
 </head>
 <body>

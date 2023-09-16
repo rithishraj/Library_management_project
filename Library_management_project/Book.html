@@ -1,20 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-
-
-
-
 </head>
 <body>
     <h2>Books</h2>
 
-
-
-    <button onclick="window.location.href = 'http://localhost:55391/addnewbook.html';">
+    <button onclick="window.location.href = '/addnewbook.html';">
         Add New Book
     </button>
-    <button onclick="window.location.href = 'http://localhost:55391/search.html';">
+    <button onclick="window.location.href = '/search.html';">
         Search
     </button>
 
@@ -22,8 +16,6 @@
 
     <meta charset="utf-8" />
     <table id="booktable" border=1>
-
-
 
         <!--<style>
             table {
@@ -54,44 +46,26 @@
 
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript">$(document).ready(function () {
-
-
-
+    
+    <script type="text/javascript">
+    
+        $(document).ready(function () {
             $.ajax({
                 type: "GET",
-                url: "http://localhost:55391/api/Book",
+                url: "http://localhost:44316/api/Book",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-
-
-
-
 
                 success: function (response) {
 
 
-
-
-
-
-
                     var tbltop = '<table border=1><tr><th>Book_Id</th><th>Book_Title</th><th>Book_Description</th><th>Author_Name</th><th>Available_Quantity</th></tr>';
-
-
 
                     var main = "";
 
 
-
                     for (i = 0; i < response.length; i++) {
-
-
-
                         main += "<tr><td>" + response[i].Book_Id + "</td><td>" + response[i].Book_Title + "</td ><td >" + response[i].Book_Description + "</td ><td >" + response[i].Author_Name + "</td ><td >" + + response[i].Available_Quantity + "</td ><td >" + " " + "<button onclick='editbook()'> Edit </button> | <button onclick='deletebook(" + response[i].Book_Id + ")'> Delete </button>" + "</td></tr>";
-
-
-
                     }
 
 
@@ -141,14 +115,14 @@
 
 
         function editbook() {
-            window.location.href = 'http://localhost:55391/editbook.html'
+            window.location.href = '/editbook.html'
         };
 
 
 
         function deletebook(Book_Id) {
             $.ajax({
-                url: "http://localhost:55391/api/Book/" + Book_Id,
+                url: "http://localhost:44316/api/Book/" + Book_Id,
                 type: "DELETE",
                 success: function () {
                     alert('record has been deleted');
@@ -160,7 +134,7 @@
             });
         }
         function refresh() {
-            window.location.href = 'http://localhost:55391/book.html'
+            window.location.href = '/book.html'
         }</script>
 
 

@@ -15,27 +15,12 @@
     <form id="categoryform">
         Category id : <input type="text" name="Category Id" id="cid" /><br />
         Category name : <input type="text" name="Category Name" id="cname" /><br />
-
-
-
         Category description : <input type="text" name="Category Description" id="cdes" /><br />
-
-
-
-
-
         <input type="button" id="Save" value="Add" />
         <input type="button" value="Go back" onclick="history.back()">
     </form>
-
-
-
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">$(document).ready(function () {
-
-
-
-
             $("#Save").click(function ()
                {
                 var person = new Object();
@@ -43,7 +28,7 @@
                 person.Category_Name = $('#cname').val();
                 person.Category_Description = $('#cdes').val();
                 $.ajax({
-                    url: 'http://localhost:55391/api/values/',
+                    url: 'http://localhost:44316/api/values/',
                     type: 'POST',
                     dataType: 'json',
                     data: person,
@@ -61,14 +46,10 @@
 
                 });
 
-
-
-
-
                   });
         });
         function refresh() {
-            window.location.href = 'http://localhost:55391/category.html'
+            window.location.href = '/category.html'
         }</script>
 
 </body>

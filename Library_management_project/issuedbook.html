@@ -12,46 +12,28 @@
 
     <table border="1" id="issuedbooktable">
     </table>
+    <input type="button" value="Go back" onclick="Refresh()">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript">$(document).ready(function () {
-
+    <script type="text/javascript">
+    $(document).ready(function () {
 
 
             $.ajax({
                 type: "GET",
-                url: "http://localhost:55391/api/IssuedBook",
+                url: "http://localhost:44316/api/IssuedBook",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-
-
-
-
-
                 success: function (response) {
-
-
-
-
 
                     $("#Category").empty();
 
-
-
-
-
                     console.log(response);
-
-
-
-
 
                     //var ListValue = "";
 
 
 
                     //var i;
-
-
 
                     //for (i = 0; i < response.length; ++i) {
                     //    ListValue += "<li>" + response[i].Issue_Id + " --- " + response[i].Member_Id + " --- " + response[i].Book_Id + " --- " + response[i].Issue_start_date + " --- " + response[i].Issue_end_date + " --- " + response[i].Return_date + " " + "<button onclick='Edit()'> Edit </button> | <button onclick='Delete()'> Delete </button>"
@@ -60,21 +42,14 @@
 
                     //}
 
-
-
                     var tbltop = '<table border=1><tr><th>Issue_Id</th><th>Member_Id</th><th>Book_Id</th><th>Issue_start_date</th><th>Issue_end_date</th><th>Return_date </th></tr>';
 
 
 
                     var main = "";
 
-
-
                     for (i = 0; i < response.length; i++) {
-
-
-
-                        main += "<tr><td>" + response[i].Issue_Id + "</td><td>" + response[i].Member_Id + "</td ><td >" + response[i].Book_Id + "</td ><td >" + response[i].Issue_start_date + "</td ><td >" + response[i].Issue_end_date + "</td ><td >" + response[i].Return_date + "</td ><td >" + " " + "<button onclick='Edit()'> Edit </button> | <button onclick='deleteissue("+ response[i].Issue_Id +")'> Delete </button>" + "</td></tr>";
+                        main += "<tr><td>" + response[i].Issue_Id + "</td><td>" + response[i].Member_Id + "</td ><td >" + response[i].Book_Id + "</td ><td >" + response[i].Issue_start_date + "</td ><td >" + response[i].Issue_end_date + "</td ><td >" + response[i].Return_date + "</td ><td >" + " " + "<button onclick='Edit()'> Edit </button> | <button onclick='deleteissue(" + response[i].Issue_Id + ")'> Delete </button>" + "</td></tr>";
 
 
 
@@ -128,7 +103,7 @@
 
         function deleteissue(Issue_Id) {
             $.ajax({
-                url: "http://localhost:55391/api/issuedbook/" + Issue_Id,
+                url: "http://localhost:44316/api/issuedbook/" + Issue_Id,
                 type: "DELETE",
                 success: function () {
                     alert('record has been deleted');
@@ -142,7 +117,9 @@
             });
         }
 
-
+        function Refresh() {
+            window.local.href = '/';
+        };
 
         function Edit() {
             alert("Edit")

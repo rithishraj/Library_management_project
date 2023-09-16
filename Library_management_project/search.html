@@ -21,31 +21,15 @@
             $("#search").click(function () {
                 let id = $('#find').val();
                 alert( id);
-                let urllink = 'http://localhost:55391/api/search?str=' +id ;
+                let urllink = 'http://localhost:44316/api/search?str=' +id ;
 
 
 
                 $.ajax({
                     type: 'GET',
-
-
-
-
-
                    url: urllink,
-
-
-
-
-
                    contentType: "application/json; charset=utf-8",
                     dataType: 'json',
-
-
-
-
-
-
 
                     success: function (response) {
 

@@ -16,22 +16,14 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">$(document).ready(function () {
 
-
-
-
-
             $("#Save").click(function () {
                 var person = new Object();
                 person.Member_Id = $('#mid').val();
                 person.Book_Id = $('#bid').val();
                 person.Issue_start_date = $('#isd').val();
                 person.Isuue_end_date = $('#ied').val();
-
-
-
-
                 $.ajax({
-                    url: 'http://localhost:55391/api/issuedbook/',
+                    url: 'http://localhost:44361/api/issuedbook/',
                     type: 'POST',
                     dataType: 'json',
                     data: person,
@@ -52,7 +44,7 @@
 
         });
         function refresh() {
-            window.location.href = 'http://localhost:55391/bookformember.html'
+            window.location.href = '/bookformember.html'
         }</script>
 </body>
 </html>

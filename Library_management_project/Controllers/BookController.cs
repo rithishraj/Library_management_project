@@ -69,17 +69,8 @@ namespace Library_Management.Controllers
                 cmd.Parameters.AddWithValue("@p4", book.Author_Name);
                 cmd.Parameters.AddWithValue("@p5", book.Category_Id);
                 cmd.Parameters.AddWithValue("@p6", book.Available_Quantity);
-
-
-
-
-
                 cmd.ExecuteNonQuery();
                 return Ok("New Employee Details saved successfuly");
-
-
-
-
 
             }
             else
@@ -93,10 +84,6 @@ namespace Library_Management.Controllers
             if (ModelState.IsValid)
             {
 
-
-
-
-
                 string constr = @"initial catalog=Library;Data source=LAPTOP-8VOAQEUN\SQLEXPRESS; integrated security=false; user id=arun; password=1234";
                 SqlConnection con = new SqlConnection(constr);
                 con.Open();
@@ -107,15 +94,8 @@ namespace Library_Management.Controllers
                 cmd.Parameters.AddWithValue("@p3", book.Book_Description);
                 cmd.Parameters.AddWithValue("@p4", book.Author_Name);
                 cmd.Parameters.AddWithValue("@p5", book.Available_Quantity);
-
-
-
-
-
                 cmd.ExecuteNonQuery();
                 return Ok("New Details saved successfuly");
-
-
 
 
 
